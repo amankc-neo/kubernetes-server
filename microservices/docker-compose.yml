@@ -1,0 +1,36 @@
+services:
+  user-service:
+    container_name: user-service-container
+    build: ./user-service
+    ports:
+      - "5001:5000"
+    networks:
+      - microservices-network
+  
+  product-service:
+    container_name: product-service-container
+    build: ./product-service
+    ports:
+      - "5002:5000"
+    networks:
+      - microservices-network
+  
+  cart-service:
+    container_name: cart-service-container
+    build: ./cart-service
+    ports:
+      - "5003:5000"
+    networks:
+      - microservices-network 
+
+  order-service:
+    container_name: order-service-container
+    build: ./order-service
+    ports:
+      - "5004:5000"
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network:
+    driver: bridge
